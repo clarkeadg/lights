@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>HTML5 Video Player | Video JS</title>
+
+  <!-- REQUIRED -->
+  <link href="../assets/css/html5video.css" rel="stylesheet" type="text/css">
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/html5video.js"></script>
+
+</head>
+<body>
+
+<style>
+.video-small {
+  display: inline-block;
+  width: 320px;
+  height: 195px;
+}
+</style>
+
+<div id="video1" class="video-small"></div> 
+<div id="video2" class="video-small"></div> 
+
+<script type="text/javascript">
+  $(function() {        
+    videojs.options.flash.swf = "../assets/flash/video-js.swf";      
+    var video1 = new html5video($('#video1'),{
+      id: 'video-1' //must have a unique idea if you want more than 1 video on a page
+      ,width: 320
+      ,height: 195
+      ,statsApi: 'http://laravel.brainbreaks.net/api/stats/?Version=v2'
+      ,enableStats: false        
+      ,replayText: 'Replay ?'
+      ,autoplay: true         
+      ,loop: false
+      ,debug: false
+      ,AppSettings: {
+        UserID: "brian"
+          ,AccountID: 1
+          ,Version: '1.4.6'
+          ,AppPlatform: 'html5'
+          ,Skin: 'web'
+      } 
+      ,videos: [  
+       {
+          src: [
+            'http://video-js.zencoder.com/oceans-clip.mp4'
+            //,'http://video-js.zencoder.com/oceans-clip.webm'
+            //,'http://video-js.zencoder.com/oceans-clip.ogv'
+          ]
+          ,srcHD: [
+            'http://video-js.zencoder.com/oceans-clip.mp4'
+            //,'http://video-js.zencoder.com/oceans-clip.webm'
+            //,'http://video-js.zencoder.com/oceans-clip.ogv'
+          ] 
+          ,poster: "http://video-js.zencoder.com/oceans-clip.png"
+          ,isAd: false
+          ,controls: true 
+        }        
+      ]
+    });
+    var video2 = new html5video($('#video2'),{
+      id: 'video-2' //must have a unique idea if you want more than 1 video on a page
+      ,width: 320
+      ,height: 195
+      ,statsApi: 'http://laravel.brainbreaks.net/api/stats/?Version=v2'
+      ,enableStats: false        
+      ,replayText: 'Replay ?'
+      ,autoplay: true         
+      ,loop: false
+      ,debug: false
+      ,AppSettings: {
+        UserID: "brian"
+          ,AccountID: 1
+          ,Version: '1.4.6'
+          ,AppPlatform: 'html5'
+          ,Skin: 'web'
+      } 
+      ,videos: [  
+       {
+          src: [
+            'http://video-js.zencoder.com/oceans-clip.mp4'
+            //,'http://video-js.zencoder.com/oceans-clip.webm'
+            //,'http://video-js.zencoder.com/oceans-clip.ogv'
+          ]
+          ,srcHD: [
+            'http://video-js.zencoder.com/oceans-clip.mp4'
+            //,'http://video-js.zencoder.com/oceans-clip.webm'
+            //,'http://video-js.zencoder.com/oceans-clip.ogv'
+          ] 
+          ,poster: "http://video-js.zencoder.com/oceans-clip.png"
+          ,isAd: false
+          ,controls: true 
+        }        
+      ]
+    });
+  });
+</script>
+
+</body>
+</html>

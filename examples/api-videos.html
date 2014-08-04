@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>HTML5 Video Player | Video JS</title>
+
+  <!-- REQUIRED -->
+  <link href="../assets/css/html5video.css" rel="stylesheet" type="text/css">
+  <script src="../assets/js/jquery.min.js"></script>
+  <script src="../assets/js/html5video.js"></script>
+
+</head>
+<body>
+
+<div id="video1"></div> 
+
+<script type="text/javascript">
+  $(function() {        
+    videojs.options.flash.swf = "../assets/flash/video-js.swf";      
+    var video1 = new html5video($('#video1'),{
+      id: 'video-1' //must have a unique idea if you want more than 1 video on a page
+      ,width: 640
+      ,height: 390
+      ,statsApi: 'http://laravel.brainbreaks.net/api/stats/?Version=v2'
+      ,enableStats: false        
+      ,replayText: 'Replay ?'
+      ,autoplay: true         
+      ,loop: false
+      ,debug: false
+      ,AppSettings: {
+        UserID: "brian"
+          ,AccountID: 1
+          ,Version: '1.4.6'
+          ,AppPlatform: 'html5'
+          ,Skin: 'web'
+      } 
+      ,videos: function(cb) {
+          $.ajax({
+            url: 'http://pipes.yahoo.com/pipes/pipe.run?_id=e678becc06a033cd31f958bf6f7a55ea&_render=json'
+            ,dataType: 'json'
+            ,success: function(data) {
+              console.log(data)
+              var playlist = [];
+              $.each(data.value.items,function(i,v){
+                playlist.push({
+                  "id":i
+                  ,"name":"video "+i
+                  ,"contentpack_id":"youtube"
+                  ,"father_id":null
+                  ,"description":v.title
+                  ,"thumbnail":"ContentPacks\/brewers\/brewers_thumb.jpg"
+                  ,"filename":""
+                  ,"contents_sort_order":"1"
+                  ,"video_type":"youtube"
+                  ,"duration":"0"
+                  ,"tags":""
+                  ,"intensity":"1"
+                  ,"enabled":"1"
+                  ,src: [
+                    v.link
+                  ]
+                  ,srcHD: [
+                    v.link
+                  ]
+                  ,type: "youtube"
+                  ,poster : ''
+                  ,title : v.title 
+                  ,isAd: false
+                  ,controls: true 
+                })
+              });
+              cb(playlist);
+            }
+            ,error: function(err) {
+              console.log(err)
+            }
+          });          
+        }
+    });
+  });
+</script>
+
+</body>
+</html>

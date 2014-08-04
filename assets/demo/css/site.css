@@ -1,0 +1,108 @@
+html { 
+	/*background: #152B38 url('images/background.png') top left repeat-x; */
+}
+body {
+	background: #152B38 url('../images/background.png') top left repeat-x; 
+	color: #FFF;
+}
+#wrap { background: url("../images/background-highlights.png") center 20px no-repeat; }
+/*h1 { font-size: 360%; line-height: 1; margin-bottom: 10px; text-align: left; letter-spacing: 5px; }
+h2 { font-size: 200%; line-height: 1; margin-bottom: 10px; }*/
+h6 { font-size: 100%; text-transform: uppercase; margin-bottom: 10px; color: #dedede; }
+p.tagline { text-align: center; font-size: 120%; line-height: 1; }
+
+p { font-size: 1.2em; line-height: 1.5; margin-bottom: 20px; }
+a { color: #7fdbff; }
+
+.example_links a {
+	color: #001f3f;
+}
+
+.center {
+	text-align: center;
+}
+
+.container.white {
+	background: #fff;
+	width: 100%;
+	padding: 20px 5%;
+}
+
+.container .jumbotron {
+	color: #000;
+	padding: 10px 25px;
+	text-align: left;
+}
+.jumbotron h6 { color: #999; }
+
+.dark {
+	background-color: #262626;
+}
+.supported-section a.dark {
+	display: inline-block;
+	margin: 5px 0;
+	padding: 5px;
+}
+
+.foot { 
+	color: #fff;
+	text-align: center;
+	font-size: 100%;
+}
+
+.html5video {
+	width: 640px;
+	height: 390px;
+	margin: 0 auto 5px;
+}
+#video-cont {
+	position: relative;
+}
+#video-cont h6 {
+	text-align: left;
+	padding: 0 10%;
+}
+.thumbs {
+	margin: 10px 0 20px;
+}
+.thumbs a {
+	display: inline-block;
+	margin: 0 2px;
+	border: 1px solid #bbb;
+}
+.html5video-loading #previous
+,.html5video-loading #next {
+  display: none;
+}
+#video-cont.html5video-first #previous {
+	display: none;
+}
+#video-cont.html5video-last #next {
+	display: none;
+}
+#next {
+	position: absolute;
+	right: 60px;
+	top: 160px;
+	font-size: 64px;
+}
+#previous {
+	position: absolute;
+	left: 60px;
+	top: 160px;
+	font-size: 64px;
+}
+
+
+#features { width: 300px; float: left; }
+ul#feature_list { display: block; margin: 15px 0 0; padding: 0; }
+ul#feature_list li { list-style: none; padding-left: 25px; font-size: 120%; line-height: 20px; margin-bottom: 25px; background: url("../images/icons/check.png") left top no-repeat; }
+
+#supported { float: right; width: 320px; }
+.supported-section { margin-bottom: 20px; }
+.supported-section a { padding-right: 10px; }
+
+#issues_link {
+	padding: 10px 0;
+	font-size: 12px;
+}
