@@ -1,0 +1,16 @@
+
+.Lights {
+	overflow: visible;
+}
+.Lights-light {
+	display: block;
+	padding: 0;
+	position: absolute;
+	background-repeat: no-repeat;
+}
+.Lights-light img {
+	display: block;
+	margin: 0;
+	padding: 0;
+	border: none;
+}

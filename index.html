@@ -2,12 +2,12 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>HTML5 Video Player | Video JS</title>
+  <title>Lights | Spidey JS</title>
 
   <!-- REQUIRED -->
-  <!--<link href="assets/css/html5video.css" rel="stylesheet" type="text/css">-->
+  <link href="assets/css/lights.css" rel="stylesheet" type="text/css">
   <script src="assets/js/jquery.min.js"></script>
-  <!--<script src="assets/js/html5video.js"></script>-->
+  <script src="assets/js/lights.js"></script>
 
   <!-- OPTIONAL -->
   <link href="assets/demo/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">  
@@ -16,6 +16,15 @@
   <link href="assets/demo/css/site.css" rel="stylesheet" type="text/css">
   <!--<link href="assets/demo/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">-->
   <link href="assets/demo/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+
+  <style>
+    #lights1 {
+      width: 0px;
+      height: 20px;
+      margin: 140px auto;
+      position: relative;
+    }
+  </style>
 
 </head>
 <body>
@@ -120,7 +129,53 @@
 </div>
 
   <script type="text/javascript">
-    $(function() {   
+    $(function() {  
+
+      setUpLights($('#lights1'),function(lights){
+        lightsIdle(lights);
+      });
+
+      function setUpLights(jcont,cb) {
+        var z = this,
+          jlights;
+        jcont.append(jlights = $('<div class="lights-center"></div>'));
+        z._lights = new Lights(jlights);
+        z._lights.init({
+          imgs: {
+            on: 'assets/img/on.png',
+            off: 'assets/img/off.png'
+          },
+          points: z._lights.generateCircle(16, 100),
+          ready: cb(z._lights)
+        });
+      }
+
+      function lightsIdle(lights) {
+        var z = lights,
+          doIt;
+        lights.kill().allOff();
+        (doIt = function() {
+          lights.whoopAndDoopBlinkyBlink(void 0, function() {
+            lights.bicycle(void 0, function() {
+              doIt();
+            });
+          });
+        })();
+      }
+
+      function lightsPlaying(lights) {
+        lights.kill().allOff().onsolo({
+          circle_speed: 140,
+          repeat: true
+        });
+      }
+
+      function lightsWon(lights) {
+        lights.kill().allOff().blinkyBash({
+          blink_delay: 125,
+          repeat: true
+        });
+      }
 
     });
   </script>
